@@ -1,0 +1,9 @@
+@import "../../styles/base.scss";
+
+.home_container {
+  margin-top: 5em;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 50px;
+  justify-content: space-evenly;
+}
