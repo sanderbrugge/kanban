@@ -1,3 +1,3 @@
-import SwimmingLane from './SwimmingLane';
+import SwimmingLaneContainer from './SwimmingLane';
 
-export default SwimmingLane;
+export default SwimmingLaneContainer;
