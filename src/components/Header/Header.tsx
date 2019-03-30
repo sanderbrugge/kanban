@@ -1,14 +1,14 @@
 import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
+import IconButton from "../IconButton/IconButton";
 
 const Header: React.FC = () => {
   return (
     <div className="header_container">
       <span className="navigation_title">Kanban</span>
-      <FontAwesomeIcon icon={faUserCircle} className="user_icon" />
-    </div>
+<IconButton icon={faUserCircle} onClick={() => console.log('clicked')} title={'Sander Brugge'} className={'user_icon'}/>
+    </div> 
   );
 };
 
