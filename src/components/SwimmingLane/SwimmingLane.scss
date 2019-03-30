@@ -37,3 +37,24 @@
     font-size: 0.9em;
   }
 }
+
+.swimminglane-row-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 20px;
+
+  .info {
+    display: grid;
+    align-items: center;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+  }
+
+  .rating {
+    color: $gold;
+  }
+}
