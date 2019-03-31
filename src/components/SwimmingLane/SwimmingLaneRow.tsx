@@ -3,14 +3,42 @@ import { User } from "../../api/interfaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SwimmingLane.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { DragSource, ConnectDragSource } from "react-dnd";
 
 interface IProps {
+  connectDragSource: ConnectDragSource;
+  isDragging: boolean;
+  handleDrop: (id: string) => void;
   user: User;
 }
 
-const SwimmingLaneRow: React.FC<IProps> = ({ user }) => {
-  return (
-    <div className="swimminglane-row-container">
+const itemSource =  {
+  beginDrag(props: IProps) {
+    return props.user;
+  },
+  endDrag(props: IProps, monitor: any, component: any) {
+    if(!monitor.didDrop()) {
+      return;
+    }
+
+    return props.handleDrop(props.user.id);
+  }
+};
+
+function collect(connect: any, monitor: any) {
+  return {
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+
+const SwimmingLaneRow: React.FC<IProps> = ({ user, connectDragSource, isDragging }) => {
+  const opacity = isDragging ? 0.3 : 1;
+
+  return connectDragSource(
+    <div className="swimminglane-row-container" style={{ opacity }}>
       <img src={user.thumbnail} className="thumbnail" />
       <div className="info">
         <span>{user.name} <span className="rating"><FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
@@ -20,4 +48,6 @@ const SwimmingLaneRow: React.FC<IProps> = ({ user }) => {
   );
 };
 
-export default SwimmingLaneRow;
+
+export default DragSource('user', itemSource, collect)(SwimmingLaneRow);
+

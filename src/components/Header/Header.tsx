@@ -8,6 +8,7 @@ const Header: React.FC = () => {
     <div className="header_container">
       <span className="navigation_title">Kanban</span>
       <IconButton
+        href={'https://github.com/sanderbrugge?utf8=%E2%9C%93&tab=repositories&q=&type=public&language='}
         icon={faUserCircle}
         onClick={() => console.log("clicked")}
         title={"Sander Brugge"}
