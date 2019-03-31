@@ -13,7 +13,7 @@ const SwimmingLaneRow: React.FC<IProps> = ({ user }) => {
     <div className="swimminglane-row-container">
       <img src={user.thumbnail} className="thumbnail" />
       <div className="info">
-        <span>{user.name}<span className="rating"><FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
+        <span>{user.name} <span className="rating"><FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
         <span>{`${user.age} y/o - ${user.sex} - ${user.location}`}</span>
       </div>
     </div>
