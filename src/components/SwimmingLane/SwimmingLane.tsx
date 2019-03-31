@@ -48,7 +48,7 @@ const SwimmingLaneContainer: React.FC<IProps> = ({
         deleteAction={() => console.log("open ellipsis")}
       />
       {data.users &&
-        data.users.map(user => <SwimmingLaneRow key={user.id} user={user} handleDrop={(id: number) => console.log(`dropped ${id}`)} />)}
+        data.users.map(user => <SwimmingLaneRow key={user.id} user={user} handleDrop={(id: string) => console.log(`dropped ${id}`)} />)}
     </div>
   );
 };
