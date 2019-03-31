@@ -1,0 +1,154 @@
+[
+  {
+    "id": "1",
+    "title": "Applied",
+    "enabled": true,
+    "users": [
+      {
+        "id": "1",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "2",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "3",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Interview",
+    "enabled": true,
+    "users": [
+      {
+        "id": "4",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "5",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Interview 2",
+    "enabled": true,
+    "users": [
+      {
+        "id": "6",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "7",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "8",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "9",
+        "name": "Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Rejected",
+    "enabled": true,
+    "users": [
+      {
+        "id": "10",
+        "name": "Not Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "11",
+        "name": "Not Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Hired",
+    "enabled": true,
+    "users": [
+      {
+        "id": "12",
+        "name": "Definitely Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      },
+      {
+        "id": "13",
+        "name": "Definitely Sander Brugge",
+        "age": "24",
+        "sex": "Male",
+        "location": "Gent",
+        "rating": 5,
+        "thumbnail": "https://media.licdn.com/dms/image/C4D03AQHA-a42qCDHHw/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=eBUawF3b9iYX46UvQkEHWfIlFZQFfq_IDr7d4lnhdnQ"
+      }
+    ]
+  }
+]

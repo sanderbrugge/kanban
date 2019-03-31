@@ -1,0 +1,60 @@
+@import "../../styles/base.scss";
+
+.swimminglane-container {
+  width: 300px;
+  height: auto;
+  background-color: $grey-light;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(20, 20, 20, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.swimminglane-header-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  align-items: center;
+  font-size: 1.2em;
+  background-color: $grey-light;
+  height: 2em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(14, 13, 13, 0.2), 0 3px 10px 0 rgba(10, 10, 10, 0.19);
+
+  .title {
+    font-weight: 500;
+    color: $black;
+    margin-left: 15px;
+  }
+
+  .items {
+    color: $grey-dark;
+    font-weight: 300;
+    margin-left: 10px;
+  }
+
+  .actions {
+    justify-self: end;
+    color: $grey-dark;
+    font-size: 0.9em;
+  }
+}
+
+.swimminglane-row-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 20px;
+
+  .info {
+    display: grid;
+    align-items: center;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+  }
+
+  .rating {
+    color: $gold;
+  }
+}
