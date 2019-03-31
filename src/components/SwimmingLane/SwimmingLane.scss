@@ -42,6 +42,8 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   margin: 20px;
+  border-bottom: 1px solid #d4d2d2;
+  padding-bottom: 20px;
 
   .info {
     display: grid;
@@ -49,9 +51,9 @@
   }
 
   .thumbnail {
-    width: 80px;
-    height: 80px;
-    border-radius: 80px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
   }
 
   .rating {
