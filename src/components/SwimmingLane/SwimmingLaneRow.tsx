@@ -8,15 +8,15 @@ import { DragSource, ConnectDragSource } from "react-dnd";
 interface IProps {
   connectDragSource: ConnectDragSource;
   isDragging: boolean;
-  handleDrop: () => void;
+  handleDrop: (id: string) => void;
   user: User;
 }
 
 const itemSource =  {
-  beginDrag(props: any) {
+  beginDrag(props: IProps) {
     return props.user;
   },
-  endDrag(props: any, monitor: any, component: any) {
+  endDrag(props: IProps, monitor: any, component: any) {
     if(!monitor.didDrop()) {
       return;
     }

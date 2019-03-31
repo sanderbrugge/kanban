@@ -19,6 +19,18 @@ function collect(connect: any, monitor: any) {
   };
 }
 
+const swimmingLaneTarget = {
+  drop(props: IProps, monitor: any) {
+    console.log('Column Drop Fired');
+    const id = monitor.getItem().id;
+    console.log(id);
+    const column = props.data;
+    console.log(column);
+
+
+  }
+}
+
 const SwimmingLaneContainer: React.FC<IProps> = ({
   data,
   connectDropTarget,
@@ -26,7 +38,8 @@ const SwimmingLaneContainer: React.FC<IProps> = ({
   item
 }) => {
   const opacity = hovered ? 0.6 : 1;
-  
+  console.log(item);
+
   return connectDropTarget(
     <div className="swimminglane-container" style={{ opacity }}>
       <SwimmingLaneHeader
@@ -40,4 +53,4 @@ const SwimmingLaneContainer: React.FC<IProps> = ({
   );
 };
 
-export default DropTarget("user", {}, collect)(SwimmingLaneContainer);
+export default DropTarget("user", swimmingLaneTarget, collect)(SwimmingLaneContainer);
