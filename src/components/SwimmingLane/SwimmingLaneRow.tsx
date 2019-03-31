@@ -14,11 +14,6 @@ interface IProps {
 const itemSource =  {
   beginDrag(props: IProps) {
     return props.user;
-  },
-  endDrag(props: IProps, monitor: any, component: any) {
-    if(!monitor.didDrop()) {
-      return;
-    }
   }
 };
 

@@ -23,7 +23,7 @@ const swimmingLaneReducer: Reducer<SwimmingLane[], any> = (
     case types.FETCH_DATA:
       return action.payload;
     case types.SWAP_USER: {
-      swapUserToLane(action.payload.user, action.payload.toLane);
+      swapUserToLane(state, action.payload.user, action.payload.toLane);
       return state;
     }
     default:
@@ -31,9 +31,18 @@ const swimmingLaneReducer: Reducer<SwimmingLane[], any> = (
   }
 };
 
-function swapUserToLane(user: User, toLane: SwimmingLane) {
-  // const index = fromLane.users.findIndex(item => item.id === user.id);
-  // fromLane.users.splice(index, 1);
+function swapUserToLane(
+  state: SwimmingLane[],
+  user: User,
+  toLane: SwimmingLane
+) {
+  state.map(lane => {
+    const index = lane.users.findIndex(item => item.id === user.id);
+    if (index !== -1) {
+      lane.users.splice(index, 1);
+    }
+  });
+
   toLane.users.push(user);
 }
 
