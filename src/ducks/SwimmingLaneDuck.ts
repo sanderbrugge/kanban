@@ -1,6 +1,7 @@
 import { SwimmingLane, User } from "../api/interfaces";
 import { Reducer } from "redux";
 import { fetchSwimmingLaneData } from "../api/user.service";
+import produce from "immer";
 
 export interface Action {
   type: string;
@@ -20,44 +21,29 @@ export const types = {
 const swimmingLaneReducer: Reducer<SwimmingLane[], any> = (
   state = initialState,
   action: Action
-) => {
-  switch (action.type) {
-    case types.FETCH_DATA:
-      return action.payload;
-    case types.SWAP_USER: {
-      const newState = [...state];
-      swapUserToLane(newState, action.payload.user, action.payload.toLane);
-      return newState;
-    }
-    case types.ADD_USER: {
-      const newState = [...state];
-      const lane = newState.find(lane => lane.id === action.payload.toLaneId);
-      if (lane) {
-        lane.users.push(action.payload.user);
+) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case types.FETCH_DATA:
+        return action.payload;
+      case types.SWAP_USER: {
+        draft.map(lane => { 
+          const index = lane.users.findIndex(user => user.id === action.payload.user.id);
+          if (index !== -1) {
+            lane.users.splice(index, 1);
+          }
+        })
+        
+        draft.find(lane => lane.id === action.payload.toLane.id)!.users.push(action.payload.user);
+        break;
       }
-
-      return newState;
-    }
-    default:
-      return state;
-  }
-};
-
-function swapUserToLane(
-  state: SwimmingLane[],
-  user: User,
-  toLane: SwimmingLane
-) {
-  state.map(lane => {
-    const index = lane.users.findIndex(item => item.id === user.id);
-    if (index !== -1) {
-      lane.users.splice(index, 1);
+      case types.ADD_USER: {
+        draft.find(lane => lane.id === action.payload.toLaneId)!.users.push(action.payload.user);
+        break;
+        // return newState;
+      }
     }
   });
-
-  toLane.users.push(user);
-}
-
 
 export const actions = {
   fetchData: () => ({
