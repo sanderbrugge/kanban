@@ -27,20 +27,25 @@ const swimmingLaneReducer: Reducer<SwimmingLane[], any> = (
       case types.FETCH_DATA:
         return action.payload;
       case types.SWAP_USER: {
-        draft.map(lane => { 
-          const index = lane.users.findIndex(user => user.id === action.payload.user.id);
+        draft.map(lane => {
+          const index = lane.users.findIndex(
+            user => user.id === action.payload.user.id
+          );
           if (index !== -1) {
             lane.users.splice(index, 1);
           }
-        })
-        
-        draft.find(lane => lane.id === action.payload.toLane.id)!.users.push(action.payload.user);
+        });
+
+        draft
+          .find(lane => lane.id === action.payload.toLane.id)!
+          .users.push(action.payload.user);
         break;
       }
       case types.ADD_USER: {
-        draft.find(lane => lane.id === action.payload.toLaneId)!.users.push(action.payload.user);
+        draft
+          .find(lane => lane.id === action.payload.toLaneId)!
+          .users.push(action.payload.user);
         break;
-        // return newState;
       }
     }
   });
