@@ -9,7 +9,8 @@ import rootReducer from "./ducks";
 class App extends Component {
   render() {
     return (
-      <Provider store={createStore(rootReducer)}>
+      // @ts-ignore connect redux dev tools
+      <Provider store={createStore(rootReducer, {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
         <Home />
       </Provider>
     );

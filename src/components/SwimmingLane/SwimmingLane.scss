@@ -2,7 +2,8 @@
 
 .swimminglane-container {
   width: 300px;
-  height: auto;
+  height: fit-content;
+  justify-self: center;
   background-color: $grey-light;
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(20, 20, 20, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

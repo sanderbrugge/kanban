@@ -6,17 +6,17 @@ import './SwimmingLane.scss';
 interface IProps {
   name: string;
   itemsInLane: number;
-  deleteAction: () => void;
+  addAction: () => void;
 }
 
-const SwimmingLaneHeader: React.FC<IProps> = ({ name, itemsInLane, deleteAction }) => {
+const SwimmingLaneHeader: React.FC<IProps> = ({ name, itemsInLane, addAction }) => {
   return (
     <div className="swimminglane-header-container">
         <span className="title">
           {name}
           <span className="items">({itemsInLane})</span>
         </span>
-        <IconButton className={"actions"} icon={faEllipsisH} onClick={deleteAction}/>
+        <IconButton className={"actions"} icon={faEllipsisH} onClick={addAction}/>
     </div>
   );
 }

@@ -8,7 +8,7 @@ interface IProps {
   icon: IconDefinition;
   className?: string;
   href?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const IconButton: React.FC<IProps> = ({

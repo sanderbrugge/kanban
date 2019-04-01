@@ -3,7 +3,7 @@
 .home_container {
   margin-top: 3em;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
   grid-gap: 50px;
   justify-content: space-evenly;
 }
