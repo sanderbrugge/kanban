@@ -20,8 +20,17 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "lib": ["dom", "dom.iterable", "esnext"]
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.spec.*", "src/**/*.test.*"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.spec.*",
+    "src/**/*.test.*"
+  ]
 }

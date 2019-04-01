@@ -2,9 +2,15 @@ import * as React from "react";
 import SwimmingLaneHeader from "./SwimmingLaneHeader";
 import { SwimmingLane, User } from "../../api/interfaces";
 import SwimmingLaneRow from "./SwimmingLaneRow";
-import { DropTarget, ConnectDropTarget, DropTargetConnector, DropTargetMonitor } from "react-dnd";
+import {
+  DropTarget,
+  ConnectDropTarget,
+  DropTargetConnector,
+  DropTargetMonitor
+} from "react-dnd";
 import { connect } from "react-redux";
 import { actions as swimmingLaneActions } from "../../ducks/SwimmingLaneDuck";
+import { createNewMockUser } from "../../util/createMockUser";
 
 interface IProps {
   connectDropTarget: ConnectDropTarget;
@@ -12,6 +18,7 @@ interface IProps {
   item: User;
   data: SwimmingLane;
   swapUser: (user: User, toLane: SwimmingLane) => void;
+  addUser: (user: User, toLaneId: string) => void;
 }
 
 function collect(connect: DropTargetConnector, monitor: DropTargetMonitor) {
@@ -37,31 +44,32 @@ const SwimmingLaneContainer: React.FC<IProps> = ({
   data,
   connectDropTarget,
   hovered,
-  item
+  addUser
 }) => {
-  const opacity = hovered ? 0.6 : 1;
+  const addUserToLane = React.useCallback(
+    () => addUser(createNewMockUser(), data.id),
+    [data]
+  );
+  const opacity = hovered ? 0.5 : 1;
 
   return connectDropTarget(
     <div className="swimminglane-container" style={{ opacity }}>
       <SwimmingLaneHeader
         name={data.title}
         itemsInLane={data.users.length}
-        deleteAction={() => console.log("open ellipsis")}
+        addAction={addUserToLane}
       />
       {data.users &&
-        data.users.map(user => (
-          <SwimmingLaneRow
-            key={user.id}
-            user={user}
-          />
-        ))}
+        data.users.map(user => <SwimmingLaneRow key={user.id} user={user} />)}
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
   swapUser: (user: User, toLane: SwimmingLane) =>
-    dispatch(swimmingLaneActions.swapUser(user, toLane))
+    dispatch(swimmingLaneActions.swapUser(user, toLane)),
+  addUser: (user: User, toLaneId: string) =>
+    dispatch(swimmingLaneActions.addUser(user, toLaneId))
 });
 
 export default connect(

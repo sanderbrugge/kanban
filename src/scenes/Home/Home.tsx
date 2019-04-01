@@ -4,9 +4,8 @@ import SwimmingLaneContainer from "../../components/SwimmingLane";
 import "./Home.scss";
 import { SwimmingLane } from "../../api/interfaces";
 import { connect } from "react-redux";
-import { actions as swimmingLaneActions } from '../../ducks/SwimmingLaneDuck';
+import { actions as swimmingLaneActions } from "../../ducks/SwimmingLaneDuck";
 import { Store } from "../../ducks";
-
 
 interface IProps {
   lanes: SwimmingLane[];
@@ -14,19 +13,25 @@ interface IProps {
 }
 
 const Home: React.FC<IProps> = ({ fetchData, lanes }) => {
-  const [data, setData] = React.useState<SwimmingLane[]>();
-
   React.useEffect(() => {
-    fetchData();
-    setData(lanes);
-  });
+    /*
+      fetch the data from the 'api'
+      I can fetch them without error handling because I know it'll return the hardcoded list.
+      In a real application fetchData() would return a promise that I can async/await on and catch errors with try/catch and handle accordingly
+    */
+    if (lanes.length === 0) {
+      fetchData();
+    }
+  })
 
   return (
     <>
       <Header />
       <div className="home_container">
-        {data &&
-          data.map(lane => <SwimmingLaneContainer key={lane.id} data={lane} />)}
+        {lanes &&
+          lanes.map(lane => {
+            return <SwimmingLaneContainer key={lane.id} data={lane} />
+          })}
       </div>
     </>
   );
@@ -37,7 +42,7 @@ const mapStateToProps = (state: Store) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  fetchData: () => dispatch(swimmingLaneActions.fetchData()),
+  fetchData: () => dispatch(swimmingLaneActions.fetchData())
 });
 
 export default connect(

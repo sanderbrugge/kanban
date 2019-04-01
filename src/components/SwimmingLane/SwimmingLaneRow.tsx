@@ -25,7 +25,6 @@ function collect(connect: DragSourceConnector, monitor: DragSourceMonitor) {
   }
 }
 
-
 const SwimmingLaneRow: React.FC<IProps> = ({ user, connectDragSource, isDragging }) => {
   const opacity = isDragging ? 0.3 : 1;
 
@@ -33,7 +32,7 @@ const SwimmingLaneRow: React.FC<IProps> = ({ user, connectDragSource, isDragging
     <div className="swimminglane-row-container" style={{ opacity }}>
       <img src={user.thumbnail} className="thumbnail" />
       <div className="info">
-        <span>{user.name} {user.id} <span className="rating"><FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
+        <span>{user.name} <span className="rating"> <FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
         <span>{`${user.age} y/o - ${user.sex} - ${user.location}`}</span>
       </div>
     </div>

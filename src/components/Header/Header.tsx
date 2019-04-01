@@ -10,7 +10,6 @@ const Header: React.FC = () => {
       <IconButton
         href={'https://github.com/sanderbrugge?utf8=%E2%9C%93&tab=repositories&q=&type=public&language='}
         icon={faUserCircle}
-        onClick={() => console.log("clicked")}
         title={"Sander Brugge"}
         className={"user_icon"}
       />
