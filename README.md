@@ -14,7 +14,7 @@ Using Redux in this application is definitely overkill. Fetching the data and se
 
 ## React-DND
 
-Using [https://github.com/react-dnd/react-dnd](React-DND) along with [https://github.com/yahoo/react-dnd-touch-backend](rn-touch-dnd-backend) was (kind of) necessary since it provides an easy to use implementation on top of the HTML 5 drag and drop functionality. 
+Using [React-DND](https://github.com/react-dnd/react-dnd) along with [rn-touch-dnd-backend](https://github.com/yahoo/react-dnd-touch-backend) was (kind of) necessary since it provides an easy to use implementation on top of the HTML 5 drag and drop functionality. 
 
 # Running this app
 
