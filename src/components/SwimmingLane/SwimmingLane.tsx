@@ -3,12 +3,15 @@ import SwimmingLaneHeader from "./SwimmingLaneHeader";
 import { SwimmingLane, User } from "../../api/interfaces";
 import SwimmingLaneRow from "./SwimmingLaneRow";
 import { DropTarget, ConnectDropTarget } from "react-dnd";
+import { connect } from "react-redux";
+import { actions as swimmingLaneActions } from "../../ducks/SwimmingLaneDuck";
 
 interface IProps {
   connectDropTarget: ConnectDropTarget;
   hovered: boolean;
   item: User;
   data: SwimmingLane;
+  swapUser: (user: User, toLane: SwimmingLane) => void;
 }
 
 function collect(connect: any, monitor: any) {
@@ -21,15 +24,14 @@ function collect(connect: any, monitor: any) {
 
 const swimmingLaneTarget = {
   drop(props: IProps, monitor: any) {
-    console.log('Column Drop Fired');
-    const id = monitor.getItem().id;
-    console.log(id);
+    const item = monitor.getItem();
     const column = props.data;
-    console.log(column);
 
-
+    if (item) {
+      props.swapUser(item, column);
+    }
   }
-}
+};
 
 const SwimmingLaneContainer: React.FC<IProps> = ({
   data,
@@ -38,7 +40,6 @@ const SwimmingLaneContainer: React.FC<IProps> = ({
   item
 }) => {
   const opacity = hovered ? 0.6 : 1;
-  console.log(item);
 
   return connectDropTarget(
     <div className="swimminglane-container" style={{ opacity }}>
@@ -48,9 +49,22 @@ const SwimmingLaneContainer: React.FC<IProps> = ({
         deleteAction={() => console.log("open ellipsis")}
       />
       {data.users &&
-        data.users.map(user => <SwimmingLaneRow key={user.id} user={user} handleDrop={(id: number) => console.log(`dropped ${id}`)} />)}
+        data.users.map(user => (
+          <SwimmingLaneRow
+            key={user.id}
+            user={user}
+          />
+        ))}
     </div>
   );
 };
 
-export default DropTarget("user", swimmingLaneTarget, collect)(SwimmingLaneContainer);
+const mapDispatchToProps = (dispatch: any) => ({
+  swapUser: (user: User, toLane: SwimmingLane) =>
+    dispatch(swimmingLaneActions.swapUser(user, toLane))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(DropTarget("user", swimmingLaneTarget, collect)(SwimmingLaneContainer));

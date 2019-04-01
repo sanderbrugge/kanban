@@ -8,20 +8,12 @@ import { DragSource, ConnectDragSource } from "react-dnd";
 interface IProps {
   connectDragSource: ConnectDragSource;
   isDragging: boolean;
-  handleDrop: (id: string) => void;
   user: User;
 }
 
 const itemSource =  {
   beginDrag(props: IProps) {
     return props.user;
-  },
-  endDrag(props: IProps, monitor: any, component: any) {
-    if(!monitor.didDrop()) {
-      return;
-    }
-
-    return props.handleDrop(props.user.id);
   }
 };
 
@@ -41,13 +33,12 @@ const SwimmingLaneRow: React.FC<IProps> = ({ user, connectDragSource, isDragging
     <div className="swimminglane-row-container" style={{ opacity }}>
       <img src={user.thumbnail} className="thumbnail" />
       <div className="info">
-        <span>{user.name} <span className="rating"><FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
+        <span>{user.name} {user.id} <span className="rating"><FontAwesomeIcon icon={faStar}/> {user.rating}</span></span>
         <span>{`${user.age} y/o - ${user.sex} - ${user.location}`}</span>
       </div>
     </div>
   );
 };
-
 
 export default DragSource('user', itemSource, collect)(SwimmingLaneRow);
 

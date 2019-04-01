@@ -2,17 +2,23 @@ import * as React from "react";
 import Header from "../../components/Header";
 import SwimmingLaneContainer from "../../components/SwimmingLane";
 import "./Home.scss";
-import { fetchSwimmingLaneData } from "../../api/user.service";
 import { SwimmingLane } from "../../api/interfaces";
+import { connect } from "react-redux";
+import { actions as swimmingLaneActions } from '../../ducks/SwimmingLaneDuck';
+import { Store } from "../../ducks";
 
-const Home: React.FC = () => {
+
+interface IProps {
+  lanes: SwimmingLane[];
+  fetchData: () => void;
+}
+
+const Home: React.FC<IProps> = ({ fetchData, lanes }) => {
   const [data, setData] = React.useState<SwimmingLane[]>();
 
   React.useEffect(() => {
-    // here I'd use an async/await fn to fetch the data and populate the state.
-    const data = fetchSwimmingLaneData();
-
-    setData(data);
+    fetchData();
+    setData(lanes);
   });
 
   return (
@@ -26,4 +32,15 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state: Store) => ({
+  lanes: state.swimmingLanes
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  fetchData: () => dispatch(swimmingLaneActions.fetchData()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
