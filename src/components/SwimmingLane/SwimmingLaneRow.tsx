@@ -3,7 +3,7 @@ import { User } from "../../api/interfaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SwimmingLane.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { DragSource, ConnectDragSource } from "react-dnd";
+import { DragSource, ConnectDragSource, DragSourceConnector, DragSourceMonitor } from "react-dnd";
 
 interface IProps {
   connectDragSource: ConnectDragSource;
@@ -17,7 +17,7 @@ const itemSource =  {
   }
 };
 
-function collect(connect: any, monitor: any) {
+function collect(connect: DragSourceConnector, monitor: DragSourceMonitor) {
   return {
     connectDragSource: connect.dragSource(),
     connectDragPreview: connect.dragPreview(),

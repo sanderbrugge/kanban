@@ -2,7 +2,7 @@ import * as React from "react";
 import SwimmingLaneHeader from "./SwimmingLaneHeader";
 import { SwimmingLane, User } from "../../api/interfaces";
 import SwimmingLaneRow from "./SwimmingLaneRow";
-import { DropTarget, ConnectDropTarget } from "react-dnd";
+import { DropTarget, ConnectDropTarget, DropTargetConnector, DropTargetMonitor } from "react-dnd";
 import { connect } from "react-redux";
 import { actions as swimmingLaneActions } from "../../ducks/SwimmingLaneDuck";
 
@@ -14,7 +14,7 @@ interface IProps {
   swapUser: (user: User, toLane: SwimmingLane) => void;
 }
 
-function collect(connect: any, monitor: any) {
+function collect(connect: DropTargetConnector, monitor: DropTargetMonitor) {
   return {
     connectDropTarget: connect.dropTarget(),
     hovered: monitor.isOver(),
@@ -23,7 +23,7 @@ function collect(connect: any, monitor: any) {
 }
 
 const swimmingLaneTarget = {
-  drop(props: IProps, monitor: any) {
+  drop(props: IProps, monitor: DropTargetMonitor) {
     const item = monitor.getItem();
     const column = props.data;
 
