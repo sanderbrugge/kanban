@@ -17,18 +17,16 @@ const IconButton: React.FC<IProps> = ({
   onClick,
   className,
   href
-}) => {
-  return (
-    <a
-      href={href}
-      target={href ? "_blank" : "_self"}
-      className={`${className} button`}
-      onClick={onClick}
-    >
-      <FontAwesomeIcon icon={icon} />
-      {title && <span>{title}</span>}
-    </a>
-  );
-};
+}) => (
+  <a
+    href={href}
+    target={href ? "_blank" : "_self"}
+    className={`${className} button`}
+    onClick={onClick}
+  >
+    <FontAwesomeIcon icon={icon} />
+    {title && <span>{title}</span>}
+  </a>
+);
 
 export default IconButton;

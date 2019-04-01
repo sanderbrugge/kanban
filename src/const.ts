@@ -1,0 +1,1 @@
+export const GITHUB_REPO_URL = "https://github.com/sanderbrugge?utf8=%E2%9C%93&tab=repositories&q=&type=public&language=";

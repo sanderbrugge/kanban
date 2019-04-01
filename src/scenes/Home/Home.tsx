@@ -22,7 +22,7 @@ const Home: React.FC<IProps> = ({ fetchData, lanes }) => {
     if (lanes.length === 0) {
       fetchData();
     }
-  })
+  });
 
   return (
     <>
@@ -37,6 +37,7 @@ const Home: React.FC<IProps> = ({ fetchData, lanes }) => {
   );
 };
 
+// Using redux in this application is overkill right now. but set for easy expansions.
 const mapStateToProps = (state: Store) => ({
   lanes: state.swimmingLanes
 });
